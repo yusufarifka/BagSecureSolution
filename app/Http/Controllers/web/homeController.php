@@ -54,10 +54,6 @@ class homeController extends Controller
     {
         return Inertia::render('products');
     }
-    public function orders()
-    {
-        return Inertia::render('orders');
-    }
     public function user()
     {
         $data=User::latest()->get();

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\web\homeController;
 use App\Http\Controllers\web\loginController;
+use App\Http\Controllers\web\productController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [homeController::class,'show'])->name('login');
 Route::get('/Profile', [homeController::class,'profile']);
 Route::get('/products', [homeController::class,'products']);
-Route::get('/orders', [homeController::class,'orders']);
 Route::post('/register', [homeController::class,'registerPost']);
 Route::post('/login', [loginController::class,'login']);
 Route::get('/logout', [loginController::class,'logout']);
@@ -33,8 +33,10 @@ Route::middleware(['auth']) -> group(function(){
     Route::post('/user/simpan',[homeController::class,'userPost']);
     Route::get('/user/edit/{id}',[homeController::class,'userEdit']);
     Route::delete('/user/hapus/{id}',[homeController::class,'userHapus']);
-    Route::post('/products/simpan',[homeController::class,'productsPost']);
-    Route::get('/products/edit/{id}',[homeController::class,'productsEdit']);
-    Route::delete('/products/hapus/{id}',[homeController::class,'productsHapus']);
+
+    Route::post('/product/simpan',[productController::class,'productPost']);
+    Route::get('/product',[productController::class,'product']);
+    // Route::get('/products/edit/{id}',[homeController::class,'productsEdit']);
+    // Route::delete('/products/hapus/{id}',[homeController::class,'productsHapus']);
 });
 
