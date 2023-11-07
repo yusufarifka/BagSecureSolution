@@ -1,25 +1,27 @@
 <template>
-    <q-page class="q-pl-md">
-        <div-class style="display: flex; justify-content: space-between; align-items: center; height: 100px; ">
-            <h3>User</h3>
-            <q-btn @click="dialogUser = true" label="tambah user" class="q-mr-md" icon="add" color="primary"  />
-        </div-class>
-        
-        <q-markup-table border separator="cell" class="q-ma-md" >
+    <q-page class="q-px-lg">
+        <div style="display: flex; justify-content: space-between; align-items: center; height: 100px; ">
+            <h4 class="text-weight-bold">User</h4>
+            <q-btn flat @click="dialogUser = true" label="add user"
+            class="text-capitalize text-weight-bold"
+            style="font-size: 25px;color: #fc6dab;"  />
+        </div>
+
+        <q-markup-table separator="cell"  >
             <thead>
                 <tr>
-                    <th style="border: 1px solid #000;">NO</th>
-                    <th style="border: 1px solid #000;">Nama</th>
-                    <th style="border: 1px solid #000;">Username</th>
-                    <th style="border: 1px solid #000;">Aksi</th>
+                    <th>NO</th>
+                    <th>Nama</th>
+                    <th>Username</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(row, index) in data" :key="index++">
-                    <td style="border: 1px solid #000;">{{ index }}</td>
-                    <td style="border: 1px solid #000;">{{ row.name }}</td>
-                    <td style="border: 1px solid #000;">{{ row.username }}</td>
-                    <td style="border: 1px solid #000;">        
+                    <td>{{ index }}</td>
+                    <td>{{ row.name }}</td>
+                    <td>{{ row.username }}</td>
+                    <td>
                         <q-btn @click="konfirmasi(row.id)" unelevated label="Delete" color="grey" style="border-radius: 30px;"/>
                         <q-btn @click="edit(row.id)" unelevated label="Edit" color="purple" class="q-mx-xs" style="border-radius: 30px;"/>
                     </td>
@@ -27,10 +29,11 @@
             </tbody>
         </q-markup-table>
     </q-page>
+
     <q-dialog v-model="dialogUser">
         <q-card flat style="width: 700px">
             <q-toolbar>
-                <q-toolbar-tittle>user</q-toolbar-tittle>
+                <q-toolbar-title>user</q-toolbar-title>
                 <q-space />
                 <q-btn round flat icon="cancel" color="pink" @click="batal" />
             </q-toolbar>
